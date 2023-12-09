@@ -5,5 +5,7 @@ Assist new D&D players with dice rolling when playing D&D!
 
 
 # Important Files
+DNDBuddyMain - Main file for application to be ran from
+DiceRollerController - Controller for the dice rolling screen
 
 # Notes

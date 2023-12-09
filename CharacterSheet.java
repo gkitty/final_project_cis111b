@@ -178,5 +178,29 @@ public class CharacterSheet
       return raceBonus;
    }
    
+   public int getMaxHP()
+   {
+      //API call to class to get hit_die
+      //Calculate maximum 
+      return 0;
+   }
+   
+   public int getArmorClass()
+   {
+      //Dex modifier + 10
+      return 0;
+   }
+   
+   public int getInitiativeBonus()
+   {
+      //Same as dex modifier
+      return 0;
+   }
+   
+   public int getDamageDie()
+   {  
+      //API call to weapon to get its damage die
+      return 0;
+   }
          
 }
