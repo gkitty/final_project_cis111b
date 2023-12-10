@@ -49,6 +49,11 @@ public class DiceRollerController implements Initializable {
       return dieResult;
    }
    
+   /**
+   displayResults Method
+   Displays results for regular dice rolls with no added bonuses
+   @param result Result from rolling the selected die
+   */
    public void displayResults(int result)
    {
       this.rawRoll.setText(Integer.toString(result));
@@ -56,6 +61,12 @@ public class DiceRollerController implements Initializable {
       this.rollTotal.setText(Integer.toString(result));
    }
    
+   /**
+   displayResults Method
+   Displays results for ability and saving throws and adds bonus
+   @param result Result from rolling the selected die
+   @param bonus Bonus for the roll
+   */
    public void displayResults(int result, int bonus)
    {
       this.rawRoll.setText(Integer.toString(result));
@@ -112,13 +123,10 @@ public class DiceRollerController implements Initializable {
    
    @FXML
     void rollAbility(ActionEvent event) {
-         
       String abilitySelected = abilityRollsList.getValue();
       int bonus = 0;
-         
-         //check to see if character has bonus and if so add to bonus
+      bonus += getRollBonus(abilitySelected);  
       displayResults(rollDie(20), bonus);
-   
    }
 
    @FXML

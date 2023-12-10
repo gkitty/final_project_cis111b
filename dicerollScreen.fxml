@@ -52,11 +52,11 @@
       <Button layoutX="31.0" layoutY="265.0" mnemonicParsing="false" onAction="#rolld10" prefHeight="75.0" prefWidth="75.0" text="D10" />
       <Button layoutX="131.0" layoutY="265.0" mnemonicParsing="false" onAction="#rolld12" prefHeight="75.0" prefWidth="75.0" text="D12" />
       <Button layoutX="231.0" layoutY="265.0" mnemonicParsing="false" onAction="#rolld20" prefHeight="75.0" prefWidth="75.0" text="D20" />
-      <Text layoutX="20.0" layoutY="568.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[Character Name]" wrappingWidth="147.9830722808838">
+      <Label fx:id="characterName" layoutX="20.0" layoutY="568.0" text="[Character Name]">
          <font>
             <Font size="19.0" />
          </font>
-      </Text>
+      </Label>
       <ComboBox fx:id="abilityRollsList" layoutX="30.0" layoutY="60.0" onAction="#rollAbility" prefWidth="150.0" promptText="Ability:" />
       <ComboBox fx:id="savingThrowRollList" layoutX="30.0" layoutY="103.0" onAction="#rollSavingThrow" prefWidth="150.0" promptText="Saving Throw:" />
       <Label fx:id="rawRoll" alignment="CENTER" layoutX="37.0" layoutY="402.0" prefHeight="39.0" prefWidth="95.0" text="RawValue">
