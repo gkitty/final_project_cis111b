@@ -26,7 +26,7 @@ public class DNDBuddyMain extends Application
      //Parent rootCharList = FXMLLoader.load(getClass().getResource("OpeningScene.fxml"));
      //Scene charListScene = new Scene(root);
      
-      Parent root = FXMLLoader.load(getClass().getResource("OpeningScene.fxml"));
+      Parent root = FXMLLoader.load(getClass().getResource("dicerollScreen.fxml"));
       Scene diceRollerScene = new Scene(root);
      
      //Parent rootNewChar = FXMLLoader.load(getClass().getResource("dicerollScreen.fxml"));
