@@ -82,7 +82,19 @@ public class CreateNewCharacterController implements Initializable {
    
    @Override
    public void initialize(URL location, ResourceBundle resources) {
-   
+    //use to set the character's race/class/weapon selection
+    
+     //adding races to combobox
+     String[] races = {"Dragonborn", "Dwarf", "Elf", "Gnome", "Half-Elf", "Halfling", "Half-Orc", "Human", "Tiefling"};
+     raceDropDown.setItems(FXCollections.observableArrayList(races));
+     
+     //adding classes to combo box
+     String[] dndClasses = {"Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"};
+     classDropDown.setItems(FXCollections.observableArrayList(dndClasses));
+     
+     //adding weapons to combo box
+     String[] weapons = {"Shortsword", "Longsword", "Shortbow", "Crossbow", "Dagger", "Club", "Waraxe", "Mace"};
+     weaponsDropDown.setItems(FXCollections.observableArrayList(weapons));
    }
 
 }
