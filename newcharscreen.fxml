@@ -42,29 +42,35 @@
 
 <AnchorPane prefHeight="602.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CreateNewCharacterController">
    <children>
-      <Text fill="#832020" layoutX="14.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create a New Character..." wrappingWidth="297.9930114746094">
+      <Text fill="#832020" layoutX="14.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Character..." wrappingWidth="297.9930114746094">
          <font>
             <Font name="Avenir Black" size="17.0" />
          </font>
       </Text>
       <Button fx:id="saveButton" layoutX="267.0" layoutY="555.0" mnemonicParsing="false" onAction="#saveCharacter" text="Save" />
       <TextField fx:id="nameInput" layoutX="15.0" layoutY="54.0" promptText="Name:" />
-      <TextField fx:id="rawSTRScoreInput" layoutX="27.0" layoutY="183.0" prefHeight="55.0" prefWidth="79.0" promptText="Strength:" />
-      <TextField fx:id="rawCONScoreInput" layoutX="118.0" layoutY="183.0" prefHeight="55.0" prefWidth="87.0" promptText="Constitution:" />
-      <TextField fx:id="rawDEXScoreInput" layoutX="220.0" layoutY="183.0" prefHeight="55.0" prefWidth="79.0" promptText="Dexterity:" />
-      <TextField fx:id="rawWISScoreInput" layoutX="27.0" layoutY="257.0" prefHeight="55.0" prefWidth="79.0" promptText="Wisdom:" />
-      <TextField fx:id="rawINTScoreInput" layoutX="122.0" layoutY="257.0" prefHeight="55.0" prefWidth="83.0" promptText="Intelligence:" />
-      <TextField fx:id="rawCHAScoreInput" layoutX="220.0" layoutY="257.0" prefHeight="55.0" prefWidth="79.0" promptText="Charisma:" />
-      <TextField layoutX="129.0" layoutY="383.0" prefHeight="60.0" prefWidth="182.0" promptText="Misc Notes:" />
+      <TextField fx:id="rawSTRScoreInput" layoutX="38.0" layoutY="203.0" prefHeight="50.0" prefWidth="60.0" promptText="Strength:" />
+      <TextField fx:id="rawCONScoreInput" layoutX="131.0" layoutY="203.0" prefHeight="50.0" prefWidth="60.0" promptText="Constitution:" />
+      <TextField fx:id="rawDEXScoreInput" layoutX="220.0" layoutY="203.0" prefHeight="50.0" prefWidth="60.0" promptText="Dexterity:" />
+      <TextField fx:id="rawWISScoreInput" layoutX="38.0" layoutY="283.0" prefHeight="50.0" prefWidth="60.0" promptText="Wisdom:" />
+      <TextField fx:id="rawINTScoreInput" layoutX="133.0" layoutY="283.0" prefHeight="50.0" prefWidth="60.0" promptText="Intelligence:" />
+      <TextField fx:id="rawCHAScoreInput" layoutX="220.0" layoutY="283.0" prefHeight="50.0" prefWidth="60.0" promptText="Charisma:" />
       <Button fx:id="backButton" layoutX="14.0" layoutY="555.0" mnemonicParsing="false" onAction="#goToHomeScreen" text="Back" />
       <ComboBox fx:id="raceDropDown" layoutX="13.0" layoutY="101.0" prefHeight="28.0" prefWidth="155.0" promptText="Race" />
       <ComboBox fx:id="classDropDown" layoutX="13.0" layoutY="145.0" prefHeight="22.0" prefWidth="155.0" promptText="Class" />
       <ComboBox fx:id="weaponsDropDown" layoutX="128.0" layoutY="343.0" prefHeight="28.0" prefWidth="155.0" promptText="Weapons" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Max HP:" x="237.0" y="70.0" />
-      <Label fx:id="maxHP" alignment="TOP_CENTER" layoutX="237.0" layoutY="75.0" prefHeight="33.0" prefWidth="61.0" text="Max HP" />
-      <Text layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Armor Class:" x="28.0" y="332.0" />
+      <Label fx:id="maxHP" alignment="TOP_CENTER" layoutX="229.0" layoutY="73.0" prefHeight="33.0" prefWidth="61.0" text="Max HP" />
+      <Text layoutX="5.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Armor Class:" x="28.0" y="332.0" />
       <Label fx:id="armorClass" alignment="CENTER" layoutX="28.0" layoutY="340.0" prefHeight="49.0" prefWidth="80.0" text="Armor Class" />
-      <Text layoutX="20.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Initiative Bonus:" x="20.0" y="383.0" />
+      <Text layoutX="5.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Initiative Bonus:" x="20.0" y="383.0" />
       <Label fx:id="initiativeBonus" alignment="CENTER" layoutX="28.0" layoutY="393.0" prefHeight="49.0" prefWidth="80.0" text="Initiative" />
+      <Text layoutX="43.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Strength" />
+      <Text layoutX="128.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Constitution" />
+      <Text layoutX="225.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dexterity" />
+      <Text layoutX="43.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wisdom" />
+      <Text layoutX="223.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Charisma" />
+      <Text layoutX="134.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Intelligence" />
+      <Button fx:id="backButton1" layoutX="153.0" layoutY="393.0" mnemonicParsing="false" onAction="#goToHomeScreen" prefHeight="49.0" prefWidth="105.0" text="Go to Roller!" />
    </children>
 </AnchorPane>

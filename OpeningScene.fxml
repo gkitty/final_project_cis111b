@@ -40,45 +40,16 @@
 
 <AnchorPane fx:id="root" prefHeight="606.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OpeningSceneController">
    <children>
-      <Button fx:id="createNewCharacterButton" alignment="CENTER" contentDisplay="CENTER" layoutX="89.0" layoutY="528.0" mnemonicParsing="false" onAction="#goToCreateNewCharacterScreen" prefHeight="50.0" prefWidth="156.0" text="Create New Character!" textAlignment="CENTER" textFill="#bd2424" underline="true" />
+      <Button fx:id="createNewCharacterButton" alignment="CENTER" contentDisplay="CENTER" layoutX="89.0" layoutY="529.0" mnemonicParsing="false" onAction="#goToCreateNewCharacterScreen" prefHeight="50.0" prefWidth="156.0" text="Edit Character" textAlignment="CENTER" textFill="#bd2424" underline="true" />
       <Text fill="#832020" layoutX="10.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to D&amp;D Character Creator!" wrappingWidth="315.5220031738281">
          <font>
             <Font name="Avenir Black" size="18.0" />
          </font>
       </Text>
-      <Text fill="#bd2424" layoutX="90.0" layoutY="104.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Characters" textAlignment="CENTER" wrappingWidth="153.9931640625">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Text>
-      <Label fx:id="char1Race" alignment="CENTER" layoutX="110.0" layoutY="139.0" prefHeight="25.0" prefWidth="73.0" text="Char1Race" />
-      <Label fx:id="char1Class" alignment="CENTER" layoutX="183.0" layoutY="139.0" prefHeight="25.0" prefWidth="73.0" text="Char1Class" />
-      <Label fx:id="Char1ClassLevel" alignment="CENTER" layoutX="256.0" layoutY="135.0" prefHeight="34.0" prefWidth="48.0" text="Char1Lvl" />
-      <Label alignment="CENTER" layoutX="110.0" layoutY="192.0" prefHeight="25.0" prefWidth="73.0" text="Char2Race" />
-      <Label alignment="CENTER" layoutX="183.0" layoutY="192.0" prefHeight="25.0" prefWidth="73.0" text="Char2Class" />
-      <Label alignment="CENTER" layoutX="256.0" layoutY="188.0" prefHeight="34.0" prefWidth="55.0" text="Char2Lvl" />
-      <Label alignment="CENTER" layoutX="110.0" layoutY="250.0" prefHeight="25.0" prefWidth="73.0" text="Char3Race" />
-      <Label alignment="CENTER" layoutX="183.0" layoutY="250.0" prefHeight="25.0" prefWidth="73.0" text="Char3Class" />
-      <Label alignment="CENTER" layoutX="256.0" layoutY="246.0" prefHeight="34.0" prefWidth="55.0" text="Char3Lvl" />
-      <Label alignment="CENTER" layoutX="110.0" layoutY="305.0" prefHeight="25.0" prefWidth="73.0" text="Char4Race" />
-      <Label alignment="CENTER" layoutX="183.0" layoutY="305.0" prefHeight="25.0" prefWidth="73.0" text="Char4Class" />
-      <Label alignment="CENTER" layoutX="256.0" layoutY="301.0" prefHeight="34.0" prefWidth="55.0" text="Char4Lvl" />
-      <Button fx:id="char1NameButton" alignment="CENTER" layoutX="10.0" layoutY="135.0" mnemonicParsing="false" onAction="#goToCharacterScreen" text="Char1Name" textAlignment="CENTER" textFill="RED" underline="true">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Button>
-      <Button alignment="CENTER" layoutX="10.0" layoutY="188.0" mnemonicParsing="false" text="Char2Name" textAlignment="CENTER" underline="true">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Button>
-      <Button alignment="CENTER" layoutX="10.0" layoutY="246.0" mnemonicParsing="false" text="Char3Name" textAlignment="CENTER" underline="true">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Button>
-      <Button alignment="CENTER" layoutX="10.0" layoutY="301.0" mnemonicParsing="false" text="Char4Name" textAlignment="CENTER" underline="true">
+      <Label fx:id="char1Race" alignment="CENTER" layoutX="130.0" layoutY="139.0" prefHeight="25.0" prefWidth="73.0" text="Char1Race" />
+      <Label fx:id="char1Class" alignment="CENTER" layoutX="131.0" layoutY="164.0" prefHeight="25.0" prefWidth="73.0" text="Char1Class" />
+      <Label fx:id="Char1ClassLevel" alignment="CENTER" layoutX="230.0" layoutY="147.0" prefHeight="34.0" prefWidth="48.0" text="Char1Lvl" />
+      <Button fx:id="char1NameButton" alignment="CENTER" layoutX="10.0" layoutY="135.0" mnemonicParsing="false" onAction="#goToCharacterScreen" prefHeight="70.0" prefWidth="109.0" text="Char1Name" textAlignment="CENTER" textFill="RED" underline="true">
          <font>
             <Font size="16.0" />
          </font>
