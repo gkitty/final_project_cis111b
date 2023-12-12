@@ -7,11 +7,11 @@ import java.util.ArrayList;
 
 public class Race
 {
-   private String name;
+   public String name;
    
-   private int speed;
+   public int speed;
    
-   private ArrayList<AbilityBonuses> ability_bonuses;  
+   public ArrayList<AbilityBonuses> ability_bonuses = new ArrayList<AbilityBonuses>();  
    
    public Race() { }
    
@@ -35,12 +35,12 @@ public class Race
       return speed;
    }
    
-   /*
-   public AbilityBonuses getAbilityBonuses()
+   
+   public ArrayList<AbilityBonuses> getAbilityBonuses()
    {
-      return new AbilityBonuses(ability_bonuses);
+      return new ArrayList<AbilityBonuses>(ability_bonuses);
    }
-   */
+   
    
    /**
    toString method

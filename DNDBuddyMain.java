@@ -1,5 +1,5 @@
 /*
-Giulietta M
+Giulietta and Margaret
 DNDBuddyMain
 CIS11B - Final Project D&D Buddy
 */
@@ -11,6 +11,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.util.*;
+
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.http.HttpResponse.BodyHandlers;
+import java.net.URL;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class DNDBuddyMain extends Application
 {

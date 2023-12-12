@@ -5,7 +5,7 @@ Race class for GSON
 
 public class AbilityScore
 {
-   private String name;
+   public String name;
    
    public AbilityScore() { }
    

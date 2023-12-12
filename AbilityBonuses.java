@@ -5,8 +5,8 @@ Race class for GSON
 
 public class AbilityBonuses
 {
-   private AbilityScore ability_score;
-   private int bonus;
+   public AbilityScore ability_score = new AbilityScore();
+   public int bonus;
    
    public AbilityBonuses() { }
    
