@@ -123,7 +123,9 @@ public class DiceRollerController implements Initializable {
    
    @FXML
     void rollAbility(ActionEvent event) {
-      String abilitySelected = abilityRollsList.getValue();
+      String abilityRollSelected = abilityRollsList.getValue();
+      String abilitySelected = abilityRollSelected.substring(0,2).toUpperCase();
+      //int bonus = characterSheet.getAbilityModifier(abilitySelected);
       int bonus = 0;
       bonus += getRollBonus(abilitySelected);  
       displayResults(rollDie(20), bonus);
@@ -132,10 +134,12 @@ public class DiceRollerController implements Initializable {
    @FXML
     void rollSavingThrow(ActionEvent event) {
          
-      String savingThrowSelected = savingThrowRollList.getValue();
+      String savingThrowRollSelected = savingThrowRollList.getValue();
+      String savingThrowSelected = savingThrowRollSelected.substring(0,2).toUpperCase();
+      //does characterSheet.getDNDClass have a proficiency in the selected saving throw? 
+      //int bonus = characterSheet.getAbilityModifier(abilitySelected) + characterSheet.getProficiencyBonus();
+      //else it is only the ability modifier
       int bonus = 0;
-         
-         //check to see if character has bonus and if so add to bonus
       displayResults(rollDie(20), bonus);
    }
    
@@ -144,6 +148,7 @@ public class DiceRollerController implements Initializable {
    public void initialize(URL location, ResourceBundle resources) {
       
       //use to get prefs, set defaults, and make first call to get data from API
+      //load API using characterSheet fields to get what saving throws and weapon character has proficiency in
       
       //add choices to combo boxes
       String[] abilities = {"Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"};
