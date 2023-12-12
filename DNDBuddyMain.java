@@ -32,7 +32,7 @@ public class DNDBuddyMain extends Application
       //Parent rootNewChar = FXMLLoader.load(getClass().getResource("newcharscreen.fxml"));
       //Scene newCharScene = new Scene(rootNewChar);
      
-      stage.setTitle("Dice Roller");
+      stage.setTitle("DND Buddy");
       stage.setScene(diceRollerScene);
       stage.show();
    }

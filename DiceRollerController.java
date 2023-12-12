@@ -157,15 +157,17 @@ public class DiceRollerController implements Initializable {
       displayResults(rollDie(20), bonus);
    }
    
+   
    public void switchToNewCharacter(ActionEvent event) throws IOException  {
          
-     Parent root = FXMLLoader.load(getClass().getResource("newcharscreen.fxml"));
-     Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-     newCharScene = new Scene(root);
-     stage.setScene(newCharScene);
-     stage.show();
+      Parent root = FXMLLoader.load(getClass().getResource("newcharscreen.fxml"));
+      Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+      newCharScene = new Scene(root);
+      stage.setScene(newCharScene);
+      stage.show();
      
    }
+   
       
    
    @Override
