@@ -1,5 +1,3 @@
-package application;
-
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
@@ -9,9 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.collections.*;
 import javafx.application.Platform;
-
 import javafx.fxml.FXMLLoader;
-
 
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
@@ -47,6 +43,7 @@ public class DiceRollerController implements Initializable {
    @FXML
    private Button editCharButton;   
    
+   @FXML
    private Scene newCharScene;
   
    
