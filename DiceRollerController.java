@@ -23,29 +23,28 @@ import java.io.IOException;
 
 import java.util.Random;
 
+/** This is a controller for the dice rolling scene of our DND Buddy */
+
 public class DiceRollerController implements Initializable {
 
    @FXML
-   private ComboBox<String> abilityRollsList;
+   private ComboBox<String> abilityRollsList; //declaring the abilityRollsList
     
    @FXML
-   private ComboBox<String> savingThrowRollList;
+   private ComboBox<String> savingThrowRollList; //declaring the savingThrowRollList
     
    @FXML
-   private Label bonusValue;
+   private Label bonusValue; //declaring the bonusvalue added to the roll
 
    @FXML
-   private Label rawRoll;
+   private Label rawRoll; //declaring the rawRoll total without bonuses
 
    @FXML
-   private Label rollTotal;
+   private Label rollTotal; //declaring the rollTotal that will be shown to the user
    
    @FXML
-   private Button editCharButton;   
+   private Button editCharButton; //declaring the button to edit the user's character
    
-   @FXML
-   private Scene newCharScene;
-  
    
       /**
    rollDie Method
@@ -85,11 +84,21 @@ public class DiceRollerController implements Initializable {
       this.rollTotal.setText(Integer.toString(result));
    }
    
+   /**
+   getRollBonus Method
+   evaluates whether the user has a bonus for the chosen ability
+   @param ability the ability chosen by the user
+   */
    public int getRollBonus(String ability)
    {
       return 0;
    }
-
+   
+   /**
+   rolld4 Method
+   Allows user to roll 4-sided die and displays the result of the RNG 
+   @param event clicking on the d4 button
+   */
    @FXML
     void rolld4(ActionEvent event) {
    
@@ -97,6 +106,11 @@ public class DiceRollerController implements Initializable {
    
    }
 
+   /**
+   rolld6 Method
+   Allows user to roll 6-sided die and displays the result of the RNG 
+   @param event clicking on the d6 button
+   */
    @FXML
     void rolld6(ActionEvent event) {
    
@@ -104,6 +118,11 @@ public class DiceRollerController implements Initializable {
    
    }
 
+   /**
+   rolld8 Method
+   Allows user to roll 8-sided die and displays the result of the RNG 
+   @param event clicking on the d8 button
+   */
    @FXML
     void rolld8(ActionEvent event) {
    
@@ -111,6 +130,11 @@ public class DiceRollerController implements Initializable {
       
    }
 
+   /**
+   rolld10 Method
+   Allows user to roll 10-sided die and displays the result of the RNG 
+   @param event clicking on the d10 button
+   */
    @FXML
     void rolld10(ActionEvent event) {
    
@@ -118,6 +142,11 @@ public class DiceRollerController implements Initializable {
    
    }
 
+   /**
+   rolld12 Method
+   Allows user to roll 12-sided die and displays the result of the RNG 
+   @param event clicking on the d12 button
+   */
    @FXML
     void rolld12(ActionEvent event) {
    
@@ -125,13 +154,22 @@ public class DiceRollerController implements Initializable {
    
    }
 
+   /**
+   rolld20 Method
+   Allows user to roll 20-sided die and displays the result of the RNG 
+   @param event clicking on the d20 button
+   */
    @FXML
     void rolld20(ActionEvent event) {
    
       displayResults(rollDie(20));
    
    }
-   
+   /**
+   rollAbility Method
+   User chooses the ability they want to roll for and bonuses are added on
+   @param event clicking an ability from the list
+   */
    @FXML
     void rollAbility(ActionEvent event) {
       String abilityRollSelected = abilityRollsList.getValue();
@@ -142,6 +180,11 @@ public class DiceRollerController implements Initializable {
       displayResults(rollDie(20), bonus);
    }
 
+   /**
+   rollSavingThrow Method
+   User chooses the saving throw type they want to roll for and bonuses are added on
+   @param event clicking a saving throw from the list
+   */
    @FXML
     void rollSavingThrow(ActionEvent event) {
          
@@ -154,19 +197,27 @@ public class DiceRollerController implements Initializable {
       displayResults(rollDie(20), bonus);
    }
    
-   
+   /**
+   switchToNewCharacter Method
+   enables the user to navigate to the character editing screen
+   @param event clicking the "Edit Character" button
+   */
    public void switchToNewCharacter(ActionEvent event) throws IOException  {
          
       Parent root = FXMLLoader.load(getClass().getResource("newcharscreen.fxml"));
       Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-      newCharScene = new Scene(root);
+      Scene newCharScene = new Scene(root);
       stage.setScene(newCharScene);
       stage.show();
      
    }
    
       
-   
+   /** 
+   initialize Method
+   initializes the lists with the ability options listed
+   @param location
+   @param resources */
    @Override
    public void initialize(URL location, ResourceBundle resources) {
       
