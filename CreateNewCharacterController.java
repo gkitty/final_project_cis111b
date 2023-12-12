@@ -76,6 +76,7 @@ public class CreateNewCharacterController implements Initializable {
    
    @FXML
    private Button rollerButton;
+
    
    @FXML
    private Button abScoreButton;

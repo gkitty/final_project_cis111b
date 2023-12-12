@@ -40,7 +40,7 @@
 
 <AnchorPane fx:id="root" prefHeight="606.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OpeningSceneController">
    <children>
-      <Button fx:id="createNewCharacterButton" alignment="CENTER" contentDisplay="CENTER" layoutX="89.0" layoutY="529.0" mnemonicParsing="false" onAction="#goToCreateNewCharacterScreen" prefHeight="50.0" prefWidth="156.0" text="Edit Character" textAlignment="CENTER" textFill="#bd2424" underline="true" />
+      <Button fx:id="createNewCharacterButton" alignment="CENTER" contentDisplay="CENTER" layoutX="89.0" layoutY="529.0" mnemonicParsing="false" onAction="#goToEditChar" prefHeight="50.0" prefWidth="156.0" text="Edit Character" textAlignment="CENTER" textFill="#bd2424" underline="true" />
       <Text fill="#832020" layoutX="10.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to D&amp;D Character Creator!" wrappingWidth="315.5220031738281">
          <font>
             <Font name="Avenir Black" size="18.0" />
@@ -49,7 +49,7 @@
       <Label fx:id="char1Race" alignment="CENTER" layoutX="130.0" layoutY="139.0" prefHeight="25.0" prefWidth="73.0" text="Char1Race" />
       <Label fx:id="char1Class" alignment="CENTER" layoutX="131.0" layoutY="164.0" prefHeight="25.0" prefWidth="73.0" text="Char1Class" />
       <Label fx:id="Char1ClassLevel" alignment="CENTER" layoutX="230.0" layoutY="147.0" prefHeight="34.0" prefWidth="48.0" text="Char1Lvl" />
-      <Button fx:id="char1NameButton" alignment="CENTER" layoutX="10.0" layoutY="135.0" mnemonicParsing="false" onAction="#goToCharacterScreen" prefHeight="70.0" prefWidth="109.0" text="Char1Name" textAlignment="CENTER" textFill="RED" underline="true">
+      <Button fx:id="char1NameButton" alignment="CENTER" layoutX="10.0" layoutY="135.0" mnemonicParsing="false" onAction="#goToDiceRoller" prefHeight="70.0" prefWidth="109.0" text="Char1Name" textAlignment="CENTER" textFill="RED" underline="true">
          <font>
             <Font size="16.0" />
          </font>
