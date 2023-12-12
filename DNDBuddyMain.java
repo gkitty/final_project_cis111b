@@ -22,15 +22,15 @@ public class DNDBuddyMain extends Application
    @Override
    public void start(Stage stage) throws Exception
    {
-     //load all scenes
-     //Parent rootCharList = FXMLLoader.load(getClass().getResource("OpeningScene.fxml"));
-     //Scene charListScene = new Scene(root);
+      //load all scenes
+      //Parent rootCharList = FXMLLoader.load(getClass().getResource("OpeningScene.fxml"));
+      //Scene charListScene = new Scene(rootCharList);
      
       Parent root = FXMLLoader.load(getClass().getResource("dicerollScreen.fxml"));
       Scene diceRollerScene = new Scene(root);
      
-     //Parent rootNewChar = FXMLLoader.load(getClass().getResource("dicerollScreen.fxml"));
-     //Scene newCharScene = new Scene(root);
+      //Parent rootNewChar = FXMLLoader.load(getClass().getResource("newcharscreen.fxml"));
+      //Scene newCharScene = new Scene(rootNewChar);
      
       stage.setTitle("Dice Roller");
       stage.setScene(diceRollerScene);

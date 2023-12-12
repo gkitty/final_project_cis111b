@@ -97,7 +97,7 @@
       <Text layoutX="127.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Intelligence" textAlignment="CENTER" />
       <Text layoutX="244.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Charisma" textAlignment="CENTER" />
       <Label fx:id="armorClass" layoutX="39.0" layoutY="321.0" text="AC" />
-      <Text layoutX="272.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level">
+      <Text layoutX="271.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level">
          <font>
             <Font size="15.0" />
          </font>
@@ -113,5 +113,35 @@
       <Text layoutX="179.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current HP" />
       <Label layoutX="189.0" layoutY="321.0" text="maxHP" />
       <TextField layoutX="175.0" layoutY="382.0" promptText="Display max hp first" />
+      <Label layoutX="22.0" layoutY="174.0" text="RaceBonusS">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="132.0" layoutY="174.0" text="RaceBonusC">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="243.0" layoutY="174.0" text="RaceBonusD">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="22.0" layoutY="264.0" text="RaceBonusW">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="130.0" layoutY="264.0" text="RaceBonusI">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="243.0" layoutY="264.0" text="RaceBonusR">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

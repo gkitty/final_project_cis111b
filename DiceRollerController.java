@@ -1,8 +1,17 @@
+package application;
+
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.Parent;
+import javafx.scene.Node; 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.collections.*;
 import javafx.application.Platform;
+
+import javafx.fxml.FXMLLoader;
+
 
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
@@ -35,7 +44,12 @@ public class DiceRollerController implements Initializable {
    @FXML
    private Label rollTotal;
    
-
+   @FXML
+   private Button editCharButton;   
+   
+   private Scene newCharScene;
+  
+   
       /**
    rollDie Method
    Returns a random value 1 - number of sides
@@ -143,6 +157,16 @@ public class DiceRollerController implements Initializable {
       displayResults(rollDie(20), bonus);
    }
    
+   public void switchToNewCharacter(ActionEvent event) throws IOException  {
+         
+     Parent root = FXMLLoader.load(getClass().getResource("newcharscreen.fxml"));
+     Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+     newCharScene = new Scene(root);
+     stage.setScene(newCharScene);
+     stage.show();
+     
+   }
+      
    
    @Override
    public void initialize(URL location, ResourceBundle resources) {
@@ -156,5 +180,6 @@ public class DiceRollerController implements Initializable {
       savingThrowRollList.setItems(FXCollections.observableArrayList(abilities));               
    }
    
+
 
 }
