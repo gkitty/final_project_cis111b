@@ -71,30 +71,41 @@ public class CreateNewCharacterController implements Initializable {
 
    @FXML
    void saveCharacter(ActionEvent event) {
-   
+      //create CharacterSheet object
+      CharacterSheet characterSheet = new CharacterSheet();
+      
+      //set CharacterSheet object to all fields user entered
+      characterSheet.setName(nameInput.getText());
+      characterSheet.setRace(raceDropDown.getValue());
+      characterSheet.setDNDClass(classDropDown.getValue());
+      //characterSheet.classLevel();
+      characterSheet.setWeapon(weaponsDropDown.getValue());
    }
    
    @FXML
    void goToHomeScreen(ActionEvent event) {
    
    }
-
+   
+   //Method for when race is edited, it shows the new racial bonus under the ability
+   
+   //Method for updating ArmorClass when class and CON ability score is changed
    
    @Override
    public void initialize(URL location, ResourceBundle resources) {
     //use to set the character's race/class/weapon selection
     
      //adding races to combobox
-     String[] races = {"Dragonborn", "Dwarf", "Elf", "Gnome", "Half-Elf", "Halfling", "Half-Orc", "Human", "Tiefling"};
-     raceDropDown.setItems(FXCollections.observableArrayList(races));
+      String[] races = {"Dragonborn", "Dwarf", "Elf", "Gnome", "Half-Elf", "Halfling", "Half-Orc", "Human", "Tiefling"};
+      raceDropDown.setItems(FXCollections.observableArrayList(races));
      
      //adding classes to combo box
-     String[] dndClasses = {"Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"};
-     classDropDown.setItems(FXCollections.observableArrayList(dndClasses));
+      String[] dndClasses = {"Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"};
+      classDropDown.setItems(FXCollections.observableArrayList(dndClasses));
      
      //adding weapons to combo box
-     String[] weapons = {"Shortsword", "Longsword", "Shortbow", "Crossbow", "Dagger", "Club", "Waraxe", "Mace"};
-     weaponsDropDown.setItems(FXCollections.observableArrayList(weapons));
+      String[] weapons = {"Shortsword", "Longsword", "Shortbow", "Crossbow", "Dagger", "Club", "Waraxe", "Mace"};
+      weaponsDropDown.setItems(FXCollections.observableArrayList(weapons));
    }
 
 }

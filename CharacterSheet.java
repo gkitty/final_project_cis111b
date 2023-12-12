@@ -18,6 +18,8 @@ public class CharacterSheet
    private String dndClass;
    /** Character DND Class Level */
    private int classLevel;
+   /** Character's Weapon */
+   private String weapon;
    
    /** Character Ability Score Array */
    private int[] abilityScores = new int[6];
@@ -83,6 +85,16 @@ public class CharacterSheet
    public void setClassLevel(int classLevel)
    {
       this.classLevel = classLevel;
+   }
+   
+   /**
+   setWeapon
+   Sets weapon of Character
+   @param weapon Weapon Character has
+   */
+   public void setWeapon(String weapon)
+   {
+      this.weapon = weapon;
    }
    
    //Ability Score setter methods, have to make sure to include race bonus into score before setting ability score//
