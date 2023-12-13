@@ -90,7 +90,7 @@ public class CreateNewCharacterController implements Initializable {
    //top levels for GSON
    public Race selectedRace;
    public DNDClass selectedClassGSON; 
-   public Weapons selectedWeapon;
+   //public Weapons selectedWeapon;
    
    //storage for when user saves and creates a new CharacterSheet
    public CharacterSheet characterSheet;
@@ -149,14 +149,37 @@ public class CreateNewCharacterController implements Initializable {
    @FXML
    void generateAbScores(ActionEvent event) {
       
-      rawSTRScoreInput.setText(Integer.toString(rollAbilityScore()));
-      rawDEXScoreInput.setText(Integer.toString(rollAbilityScore()));
-      rawCONScoreInput.setText(Integer.toString(rollAbilityScore()));
-      rawINTScoreInput.setText(Integer.toString(rollAbilityScore()));
-      rawWISScoreInput.setText(Integer.toString(rollAbilityScore()));
-      rawCHAScoreInput.setText(Integer.toString(rollAbilityScore()));
+      //Recieve characterSheet (CharacterSheet object) from CreateNewCharacterSheetController
+      CharacterSheet characterSheet  = CharacterSheet.getInstance();
       
+      //generating strength and saving it to the character sheet object
+      rawSTRScoreInput.setText(Integer.toString(rollAbilityScore()));
+         characterSheet.setStrength(Integer.parseInt(rawSTRScoreInput.getText()));
+      
+      //generating and saving dexterity
+      rawDEXScoreInput.setText(Integer.toString(rollAbilityScore()));
+         characterSheet.setDexterity(Integer.parseInt(rawDEXScoreInput.getText()));
+     
+      //generating and saving constitution
+      rawCONScoreInput.setText(Integer.toString(rollAbilityScore()));
+         characterSheet.setConstitution(Integer.parseInt(rawCONScoreInput.getText()));
+
+      //generating and saving intelligence         
+      rawINTScoreInput.setText(Integer.toString(rollAbilityScore()));
+         characterSheet.setIntelligence(Integer.parseInt(rawINTScoreInput.getText()));
+      
+      //generating and saving wisdom   
+      rawWISScoreInput.setText(Integer.toString(rollAbilityScore()));
+         characterSheet.setWisdom(Integer.parseInt(rawWISScoreInput.getText()));
+      
+      //generating and saving charisma
+      rawCHAScoreInput.setText(Integer.toString(rollAbilityScore()));
+         characterSheet.setCharisma(Integer.parseInt(rawCHAScoreInput.getText()));
+         
+      //calling the calculateArmorClass method    
       calculateArmorClass();
+      
+      //calling the calculateInitiativeBonus method
       calculateInitiativeBonus();
    }
    

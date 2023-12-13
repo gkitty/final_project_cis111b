@@ -1,5 +1,5 @@
 /*
-Giulietta M
+Giulietta & Margaret
 DND Character Sheet Class 
 CIS111B Final Project : D&D Buddy
 */
@@ -30,7 +30,10 @@ public final class CharacterSheet
       /** No Argument Constructor */
    private CharacterSheet()
    {
-      //name = "Bart";
+      name = "Bart";
+      race = "Dwarf";
+      dndClass = "Bard";
+      classLevel = 2;
    }
    
    /** Constructor */
@@ -359,7 +362,12 @@ public final class CharacterSheet
       
       return abilityModifier;
    }
-   
+ 
+   /**
+   getRaceBonus method
+   @param Ability one of the six the user has
+   @return raceBonus modifier
+   */   
    public int getRaceBonus(String ability)
    {
       int raceBonus = 0;
@@ -367,32 +375,53 @@ public final class CharacterSheet
          //check to see what ability_score it has, if it matches with ability then add bonus
       return raceBonus;
    }
-   
+
+   /**
+   getMaxHP method calculates the character's maxHP
+   @return maxHP total HP the character has
+   */
    public int getMaxHP()
    {
       //API call to class to get hit_die
       //Calculate maximum 
       return 0;
    }
-   
+
+   /**
+   getArmorClass method calculates armor class based on dexterity
+   @return ac armor class score
+   */   
    public int getArmorClass()
    {
-      //Dex modifier + 10
-      return 0;
+      int ac;
+      ac = getAbilityModifier("DEX") + 10;
+      return ac;
    }
    
+   /**
+   getInitiativeBonus method gets initiative from the dexterity modifier
+   @return ib initiative bonus
+   */   
    public int getInitiativeBonus()
    {
-      //Same as dex modifier
-      return 0;
+      int ib = getAbilityModifier("DEX");
+      return ib;
    }
-   
+
+   /**
+   getDamageDie method calls API to find weapon's damage die
+   @return 
+   */      
    public int getDamageDie()
    {  
       //API call to weapon to get its damage die
       return 0;
    }
-   
+
+   /**
+   getProficiencyBonus method calls API to find proficiency based on dndClass
+   @return pBonus proficiency bonus
+   */      
    public int getProficiencyBonus()
    {
       //API call to Proficiencies using the dndclass

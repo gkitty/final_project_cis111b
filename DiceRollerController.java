@@ -69,6 +69,9 @@ public class DiceRollerController implements Initializable {
    @FXML
    private Label weaponName; //declaring the weapons label
    
+   @FXML
+   private TextField currHPTextField; //declaring textfield for user to set their current HP
+   
    public CharacterSheet characterSheetView; //declaring the CharacterSheet the user wants to use
    
    /**
@@ -109,22 +112,6 @@ public class DiceRollerController implements Initializable {
       this.rollTotal.setText(Integer.toString(result));
    }
 
-   /**
-   displayCharacterInfo Method
-   Displays information regarding the user's character
-   @param characterSheet character object created by the user
-   */
-   public void displayCharacterInfo(CharacterSheet characterSheet) {
-      characterName.setText(characterSheet.getName());
-      raceLabel.setText(characterSheet.getRace());
-      dndClass.setText(characterSheet.getDNDClass());
-      classLevel.setText(Integer.toString(characterSheet.getClassLevel()));
-      armorClass.setText(Integer.toString(characterSheet.getArmorClass()));
-      //add currentHP
-      initiativeBonus.setText(Integer.toString(characterSheet.getInitiativeBonus()));
-      weaponName.setText(characterSheet.getWeapon());
-   }
-   
    /**
    getRollBonus Method
    evaluates whether the user has a bonus for the chosen ability
@@ -267,11 +254,19 @@ public class DiceRollerController implements Initializable {
       
       //Recieve characterSheet (CharacterSheet object) from CreateNewCharacterSheetController
       CharacterSheet characterSheetView = CharacterSheet.getInstance();
+      
       //and set to fields
       characterName.setText(characterSheetView.getName());
       raceLabel.setText(characterSheetView.getRace());
+      dndClass.setText(characterSheetView.getDNDClass());
+      classLevel.setText(Integer.toString(characterSheetView.getClassLevel()));
+      armorClass.setText(Integer.toString(characterSheetView.getArmorClass()));
+      initiativeBonus.setText(Integer.toString(characterSheetView.getInitiativeBonus()));
+      weaponName.setText(characterSheetView.getWeapon());
+      //add current HP to this
+      //currentHP.setText(Integer.toString(characterSheetView.getCurrentHP()));
       
-      //Prefrences class for saving info idk?
+      //Preferences class for saving info idk?
       
       //add choices to combo boxes
       String[] abilities = {"Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"};

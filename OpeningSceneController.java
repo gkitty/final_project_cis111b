@@ -37,7 +37,8 @@ public class OpeningSceneController implements Initializable {
 
    @FXML
    private Button createNewCharacterButton; //declaring button to edit the character
-
+   
+   public CharacterSheet characterSheetView; //declaring the CharacterSheet the user wants to use
 
    /**
    goToEditChar method
@@ -73,12 +74,18 @@ public class OpeningSceneController implements Initializable {
    /** 
    initialize Method
    initializes the lists with the ability options listed
+   initializes the lists with the ability options listed; initializes labels
    @param location
    @param resources */
    @Override
    public void initialize(URL location, ResourceBundle resources)
    {
    
+      CharacterSheet characterSheetView = CharacterSheet.getInstance();
+      char1NameButton.setText(characterSheetView.getName());
+      char1Race.setText(characterSheetView.getRace());
+      char1Class.setText(characterSheetView.getDNDClass());
+      Char1ClassLevel.setText(Integer.toString(characterSheetView.getClassLevel()));
    }
 
 }
