@@ -24,22 +24,26 @@ import java.io.IOException;
 public class OpeningSceneController {
 
    @FXML
-   private Label Char1ClassLevel;
+   private Label Char1ClassLevel; //declaring label for the character's level
 
    @FXML
-   private Label char1Class;
+   private Label char1Class; //declaring label for the character's class
 
    @FXML
-   private Button char1NameButton;
+   private Button char1NameButton; //declaring button to roll for the character
 
    @FXML
-   private Label char1Race;
+   private Label char1Race; //declaring label for the character's race
 
    @FXML
-   private Button createNewCharacterButton;
+   private Button createNewCharacterButton; //declaring button to edit the character
 
 
-
+   /**
+   goToEditChar method
+   enables the user to switch to the editing character screen
+   @param event clicking the "Edit Character" button
+   */
    @FXML
    void goToEditChar(ActionEvent event)throws IOException {
     
@@ -50,7 +54,12 @@ public class OpeningSceneController {
       stage.show();
    
    }
-
+   
+   /**
+   goToDiceRoller method
+   enables the user to switch to the dice rolling/character viewing screen
+   @param event clicking the Character button
+   */
    @FXML
    void goToDiceRoller(ActionEvent event) throws IOException {
       

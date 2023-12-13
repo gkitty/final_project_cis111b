@@ -35,59 +35,60 @@ import java.util.ArrayList;
 public class CreateNewCharacterController implements Initializable {
 
    @FXML
-   private Label armorClass;
+   private Label armorClass; //declaring armor class label
 
    @FXML
-   private Button backButton;
+   private Button backButton; //declaring backButton to go to the Opening screen
 
    @FXML
-   private ComboBox<String> classDropDown;
+   private ComboBox<String> classDropDown; //declaring the combo box for the DND class selection
 
    @FXML
-   private Label initiativeBonus;
+   private Label initiativeBonus; //declaring the initative bonus label
 
    @FXML
-   private Label maxHP;
+   private Label maxHP; //declaring the maxHP label
 
    @FXML
-   private TextField nameInput;
+   private TextField nameInput; //declaring the name input textfield
 
    @FXML
-   private ComboBox<String> raceDropDown;
+   private ComboBox<String> raceDropDown; //declaring the combo box for the DND race selection
 
    @FXML
-   private TextField rawCHAScoreInput;
+   private TextField rawCHAScoreInput; //declaring the charisma score text field
 
    @FXML
-   private TextField rawCONScoreInput;
+   private TextField rawCONScoreInput; //declaring the constitution score text field
 
    @FXML
-   private TextField rawDEXScoreInput;
+   private TextField rawDEXScoreInput; //declaring the dexterity score text field
 
    @FXML
-   private TextField rawINTScoreInput;
+   private TextField rawINTScoreInput; //declaring the intelligence score text field
 
    @FXML
-   private TextField rawSTRScoreInput;
+   private TextField rawSTRScoreInput; //declaring the strength score text field
 
    @FXML
-   private TextField rawWISScoreInput;
+   private TextField rawWISScoreInput; //declaring the wisdom score text field
 
    @FXML
-   private Button saveButton;
+   private Button saveButton; //declaring the save button for the character's data
 
    @FXML
-   private ComboBox<String> weaponsDropDown;
+   private ComboBox<String> weaponsDropDown; //declaring the combo box for weapon selection
    
    @FXML
-   private Button rollerButton;
-   
-   @FXML
-   private Button abScoreButton;
+   private Button abScoreButton; //declaring the ability score button to randomly generate scores for the user
    
    //top level for race storage
    public Race selectedRace;
 
+   /** 
+   saveCharacter method
+   stores the information inputted by the user
+   @param event clicking the "Save" button */
    @FXML
    void saveCharacter(ActionEvent event) {
       //create CharacterSheet object
@@ -100,7 +101,12 @@ public class CreateNewCharacterController implements Initializable {
       //characterSheet.classLevel();
       characterSheet.setWeapon(weaponsDropDown.getValue());
    }
-   
+
+   /**
+   goToHomeScreen method
+   enables the user to switch to the welcome  screen
+   @param event clicking the back button
+   */   
    @FXML
    void goToHomeScreen(ActionEvent event) throws IOException {
    
@@ -111,7 +117,11 @@ public class CreateNewCharacterController implements Initializable {
       stage.show();   
    }
    
-   
+   /**
+   goToDiceRoller method
+   enables the user to switch to the dice rolling/character viewing screen
+   @param event clicking the "Roll!" button
+   */     
    @FXML
    void goToRoller(ActionEvent event) throws IOException {
       
@@ -120,8 +130,12 @@ public class CreateNewCharacterController implements Initializable {
       Scene diceRollerScene = new Scene(root);
       stage.setScene(diceRollerScene);
       stage.show();
-   }
+   } 
    
+   /** 
+   generateAbScores method
+   randomly generates scores for the character's abilities and sets them as text
+   @param event clicking "Generate Ability Scores" button */
    @FXML
    void generateAbScores(ActionEvent event) {
       
@@ -133,7 +147,11 @@ public class CreateNewCharacterController implements Initializable {
       rawCHAScoreInput.setText(Integer.toString(rollAbilityScore()));
       
    }
-   
+
+   /** 
+   rollAbilityScore method
+   randomly generates scores for the each of the character's abilities
+   @param event clicking "Generate Ability Scores" button */
    public int rollAbilityScore()
    {
       Random die1 = new Random();
@@ -252,7 +270,7 @@ public class CreateNewCharacterController implements Initializable {
    public void initialize(URL location, ResourceBundle resources) {
     //use to set the character's race/class/weapon selection
     
-     //adding races to combobox
+     //adding races to combo box
       String[] races = {"Dragonborn", "Dwarf", "Elf", "Gnome", "Half-Elf", "Halfling", "Half-Orc", "Human", "Tiefling"};
       raceDropDown.setItems(FXCollections.observableArrayList(races));
      

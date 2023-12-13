@@ -30,7 +30,10 @@ public class DNDBuddyMain extends Application
    {
       launch(args);
    }
-   
+   /**
+   start method
+   starts the stage
+   @param stage the opening stage */
    @Override
    public void start(Stage stage) throws Exception
    {
