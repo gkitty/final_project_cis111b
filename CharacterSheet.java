@@ -289,7 +289,29 @@ public class CharacterSheet
    public static int scoreToModifier(int score)
    {
       //switch statement from table ability scores and modifiers
-      return 0;
+      int calculatedModifier = 0;
+      switch(score)
+      {
+         case 1 -> calculatedModifier = -5;
+         case 2,3 -> calculatedModifier = -4;
+         case 4,5 -> calculatedModifier = -3;
+         case 6,7 -> calculatedModifier = -2;
+         case 8,9 -> calculatedModifier = -1;
+         case 10,11 -> calculatedModifier = 0;
+         case 12,13 -> calculatedModifier = 1;
+         case 14,15 -> calculatedModifier = 2;
+         case 16,17 -> calculatedModifier = 3;
+         case 18,19 -> calculatedModifier = 4;
+         case 20,21 -> calculatedModifier = 5;
+         case 22,23 -> calculatedModifier = 6;
+         case 24,25 -> calculatedModifier = 7;
+         case 26,27 -> calculatedModifier = 8;
+         case 28,29 -> calculatedModifier = 9;
+         case 30 -> calculatedModifier = 10;
+         default -> calculatedModifier = 0;
+      }
+   
+      return calculatedModifier;
    }
    
    /**

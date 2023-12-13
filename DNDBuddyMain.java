@@ -38,14 +38,14 @@ public class DNDBuddyMain extends Application
       //Parent rootCharList = FXMLLoader.load(getClass().getResource("OpeningScene.fxml"));
       //Scene charListScene = new Scene(rootCharList);
      
-      Parent root = FXMLLoader.load(getClass().getResource("dicerollScreen.fxml"));
-      Scene diceRollerScene = new Scene(root);
+      Parent root = FXMLLoader.load(getClass().getResource("OpeningScene.fxml"));
+      Scene openingScene = new Scene(root);
      
       //Parent rootNewChar = FXMLLoader.load(getClass().getResource("newcharscreen.fxml"));
       //Scene newCharScene = new Scene(rootNewChar);
      
       stage.setTitle("DND Buddy");
-      stage.setScene(diceRollerScene);
+      stage.setScene(openingScene);
       stage.show();
    }
   

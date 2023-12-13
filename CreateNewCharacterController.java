@@ -132,8 +132,14 @@ public class CreateNewCharacterController implements Initializable {
       rawWISScoreInput.setText(Integer.toString(rollAbilityScore()));
       rawCHAScoreInput.setText(Integer.toString(rollAbilityScore()));
       
+      calculateArmorClass();
    }
    
+   /**
+   rollAbilityScore
+   Rolls 4 6 sided die, and sums the 3 greatest rolls. This is a common practice when setting ability scores
+   @return sum of greatest 3 rolls
+   */
    public int rollAbilityScore()
    {
       Random die1 = new Random();
@@ -154,6 +160,26 @@ public class CreateNewCharacterController implements Initializable {
       
    }
    
+   /**
+   calculateArmorClass
+   Armor class is the character's dex modifier + 10, this assumes character is not wearing armor
+   This also updates the armorClass label to show to the user
+   */
+   public void calculateArmorClass() {
+      //DEX mod + 10
+      int dexScore = Integer.parseInt(rawDEXScoreInput.getText());
+      int dexMod = CharacterSheet.scoreToModifier(dexScore);
+      String armorClassStr = Integer.toString(dexMod);
+      String armorClassSigned;
+      if(dexMod > 0)
+         armorClassSigned = "+" + armorClassStr;
+      else
+         armorClassSigned = armorClassStr;   
+         
+      armorClass.setText(armorClassSigned);
+   }
+   
+   /*
    //Method for when race is edited, it shows the new racial bonus under the ability
    //@FXML
    void displayRaceBonus(ActionEvent event) {
@@ -217,6 +243,7 @@ public class CreateNewCharacterController implements Initializable {
       }
    }
    
+   
    public void processAPIData(String data)
    {
       System.out.println(data);
@@ -243,7 +270,7 @@ public class CreateNewCharacterController implements Initializable {
             }
          });
    
-   }
+   }*/
 
    
    //Method for updating ArmorClass when class and CON ability score is changed
