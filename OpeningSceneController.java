@@ -21,7 +21,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.io.IOException;
 
-public class OpeningSceneController {
+public class OpeningSceneController implements Initializable {
 
    @FXML
    private Label Char1ClassLevel; //declaring label for the character's level
@@ -68,6 +68,17 @@ public class OpeningSceneController {
       Scene diceRollerScene = new Scene(root);
       stage.setScene(diceRollerScene);
       stage.show();
+   }
+   
+   /** 
+   initialize Method
+   initializes the lists with the ability options listed
+   @param location
+   @param resources */
+   @Override
+   public void initialize(URL location, ResourceBundle resources)
+   {
+   
    }
 
 }

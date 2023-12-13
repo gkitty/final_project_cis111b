@@ -8,7 +8,7 @@ CIS111B Final Project : D&D Buddy
 /**
 A class for recording the stats of the entered DND characters
 */
-public class CharacterSheet
+public final class CharacterSheet
 {
    /** Character Name */
    private String name;
@@ -23,11 +23,14 @@ public class CharacterSheet
    
    /** Character Ability Score Array */
    private int[] abilityScores = new int[6];
+   
+   /** Constant of same type as class and initalized, for passing data between scenes */
+   private final static CharacterSheet instance = new CharacterSheet();
 
       /** No Argument Constructor */
-   public CharacterSheet()
+   private CharacterSheet()
    {
-      name = "Bart";
+      //name = "Bart";
    }
    
    /** Constructor */
@@ -46,6 +49,16 @@ public class CharacterSheet
       this.race = characterSheet.race;
       this.dndClass = characterSheet.dndClass;
       this.classLevel = characterSheet.classLevel;
+   }
+   
+   /**
+   returnInstance
+   Returns CharacterSheet instance, for passing data between scenes
+   @return CharacterSheet instance
+   */
+   public static CharacterSheet getInstance()
+   {
+      return instance;
    }
    
    /**

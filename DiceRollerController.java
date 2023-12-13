@@ -69,6 +69,8 @@ public class DiceRollerController implements Initializable {
    @FXML
    private Label weaponName; //declaring the weapons label
    
+   public CharacterSheet characterSheetView; //declaring the CharacterSheet the user wants to use
+   
    /**
    rollDie Method
    Returns a random value 1 - number of sides
@@ -262,6 +264,14 @@ public class DiceRollerController implements Initializable {
       
       //use to get prefs, set defaults, and make first call to get data from API
       //load API using characterSheet fields to get what saving throws and weapon character has proficiency in
+      
+      //Recieve characterSheet (CharacterSheet object) from CreateNewCharacterSheetController
+      CharacterSheet characterSheetView = CharacterSheet.getInstance();
+      //and set to fields
+      characterName.setText(characterSheetView.getName());
+      raceLabel.setText(characterSheetView.getRace());
+      
+      //Prefrences class for saving info idk?
       
       //add choices to combo boxes
       String[] abilities = {"Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"};

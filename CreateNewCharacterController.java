@@ -87,6 +87,9 @@ public class CreateNewCharacterController implements Initializable {
    
    //top level for race storage
    public Race selectedRace;
+   
+   //storage for when user saves and creates a new CharacterSheet
+   public CharacterSheet characterSheet;
 
    /** 
    saveCharacter method
@@ -95,7 +98,7 @@ public class CreateNewCharacterController implements Initializable {
    @FXML
    void saveCharacter(ActionEvent event) {
       //create CharacterSheet object
-      CharacterSheet characterSheet = new CharacterSheet();
+      CharacterSheet characterSheet = CharacterSheet.getInstance();
       
       //set CharacterSheet object to all fields user entered
       characterSheet.setName(nameInput.getText());
