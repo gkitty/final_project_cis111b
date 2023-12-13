@@ -45,8 +45,31 @@ public class DiceRollerController implements Initializable {
    @FXML
    private Button editCharButton; //declaring the button to edit the user's character
    
+   @FXML
+   private Label characterName; //declaring the name label
    
-      /**
+   @FXML 
+   private Label raceLabel; //declaring the race label
+   
+   @FXML
+   private Label dndClass; //declaring the class label
+   
+   @FXML
+   private Label classLevel; //declaring the level label
+   
+   @FXML
+   private Label currentHP; //declaring the HP label
+  
+   @FXML
+   private Label armorClass; //declaring the armor class label
+   
+   @FXML
+   private Label initiativeBonus; //declaring the initiative bonus label
+   
+   @FXML
+   private Label weaponName; //declaring the weapons label
+   
+   /**
    rollDie Method
    Returns a random value 1 - number of sides
    @param numSides number of sides on the die
@@ -82,6 +105,22 @@ public class DiceRollerController implements Initializable {
       this.rawRoll.setText(Integer.toString(result));
       this.bonusValue.setText(Integer.toString(bonus));
       this.rollTotal.setText(Integer.toString(result));
+   }
+
+   /**
+   displayCharacterInfo Method
+   Displays information regarding the user's character
+   @param characterSheet character object created by the user
+   */
+   public void displayCharacterInfo(CharacterSheet characterSheet) {
+      characterName.setText(characterSheet.getName());
+      raceLabel.setText(characterSheet.getRace());
+      dndClass.setText(characterSheet.getDNDClass());
+      classLevel.setText(Integer.toString(characterSheet.getClassLevel()));
+      armorClass.setText(Integer.toString(characterSheet.getArmorClass()));
+      //add currentHP
+      initiativeBonus.setText(Integer.toString(characterSheet.getInitiativeBonus()));
+      weaponName.setText(characterSheet.getWeapon());
    }
    
    /**

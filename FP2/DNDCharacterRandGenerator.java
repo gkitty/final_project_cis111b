@@ -33,6 +33,29 @@ public class DNDCharacterRandGenerator
       System.out.println("Class Level Proficiencys:" + classLevel.getProfBonus());
       System.out.println("Weapon:" + weapon.getName() + " (" + weapon.getDamage().getDamageDice() + ")");
    }
+      class Race 
+   {
+      private String name;
+      private int speed;
+   }
 
-   
+      class DNDClass 
+   {
+      private String name;
+      private int hitDie;
+   }
+
+      class DNDClassLevel 
+   {
+      private int profBonus;
+   }
+
+      class WeaponS 
+   {
+      private int Damage
+   }
+      class Damage 
+   {
+      private String damageDice;
+   }
 }
