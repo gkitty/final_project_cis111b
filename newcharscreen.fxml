@@ -56,8 +56,8 @@
       <TextField fx:id="rawINTScoreInput" alignment="CENTER" layoutX="135.0" layoutY="252.0" prefHeight="23.0" prefWidth="60.0" promptText="INT" />
       <TextField fx:id="rawCHAScoreInput" alignment="CENTER" layoutX="222.0" layoutY="252.0" prefHeight="15.0" prefWidth="60.0" promptText="CHR" />
       <Button fx:id="backButton" layoutX="14.0" layoutY="555.0" mnemonicParsing="false" onAction="#goToHomeScreen" text="Back" />
-      <ComboBox fx:id="raceDropDown" layoutX="13.0" layoutY="101.0" prefHeight="28.0" prefWidth="155.0" promptText="Race" />
-      <ComboBox fx:id="classDropDown" layoutX="13.0" layoutY="145.0" prefHeight="22.0" prefWidth="155.0" promptText="Class" />
+      <ComboBox fx:id="raceDropDown" layoutX="13.0" layoutY="101.0" onAction="#handleRaceInput" prefHeight="28.0" prefWidth="155.0" promptText="Race" />
+      <ComboBox fx:id="classDropDown" layoutX="13.0" layoutY="145.0" onAction="#handleDNDClassInput" prefHeight="22.0" prefWidth="155.0" promptText="Class" />
       <ComboBox fx:id="weaponsDropDown" layoutX="128.0" layoutY="343.0" prefHeight="28.0" prefWidth="155.0" promptText="Weapons" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Max HP:" x="237.0" y="70.0" />
       <Label fx:id="maxHP" alignment="TOP_CENTER" layoutX="229.0" layoutY="73.0" prefHeight="33.0" prefWidth="61.0" text="Max HP" />

@@ -85,8 +85,12 @@ public class CreateNewCharacterController implements Initializable {
    @FXML
    private TextField classLevelInput; //declaring level of class for character
    
-   //top level for race storage
+   private HttpClient client; //used to retrieve data from the API
+   
+   //top levels for GSON
    public Race selectedRace;
+   public DNDClass selectedClassGSON; 
+   public Weapons selectedWeapon;
    
    //storage for when user saves and creates a new CharacterSheet
    public CharacterSheet characterSheet;
@@ -162,6 +166,40 @@ public class CreateNewCharacterController implements Initializable {
       
    }
    
+   @FXML
+   void handleRaceInput(ActionEvent event)
+   {
+      
+   }
+   
+   /**
+   handleDNDClassInput
+   Handles when the DNDClass combobox is changed
+   @param event ActionEvent on DNDClassInput combo box
+   */
+   @FXML
+   void handleDNDClassInput(ActionEvent event)
+   {
+      if((rawCONScoreInput.getText() != null) && (classDropDown.getValue() != null))
+         getAPIData();
+   }
+   
+   /**
+   updateMaxHP
+   Updates the UI to display the character's max HP based on their class and consitution score
+   */
+   public void updateMaxHP()
+   {
+      if(this.selectedClassGSON != null) {
+         int classHitDie = this.selectedClassGSON.hit_die;
+         int calculatedMaxHP = classHitDie
+                            + Integer.valueOf(rawCONScoreInput.getText())
+                            + (classHitDie * Integer.valueOf(classLevelInput.getText())); 
+                              
+         maxHP.setText(Integer.toString(calculatedMaxHP));
+      }
+   }
+   
    /**
    rollAbilityScore
    Rolls 4 6 sided die, and sums the 3 greatest rolls. This is a common practice when setting ability scores
@@ -221,6 +259,93 @@ public class CreateNewCharacterController implements Initializable {
       
    }
    
+   /**
+   getAPIData
+   Gets API data for DNDClass
+   */      
+   public void getAPIData()
+   {
+      //URI dndAPI = new URI("https://www.dnd5eapi.co/api/classes/bard");
+      
+      //create HttpClient
+      if(this.client == null)
+         this.client = HttpClient.newHttpClient(); //only create once
+      
+      try {
+      //create httprequest with URI
+         
+         HttpRequest request = HttpRequest.newBuilder()
+                                       .uri(new URI("https://www.dnd5eapi.co/api/classes/bard"))
+                                       .GET()
+                                       .build();
+                                       
+         client.sendAsync(request, BodyHandlers.ofString())
+            .thenApply(HttpResponse::body)
+            .thenAccept(this::processAPIData);
+            
+      } catch(URISyntaxException e) {
+         System.out.println("API Error");
+         return;
+      }
+      
+      System.out.println("Getting data from API...");
+   }
+   
+   /**
+   processAPIData
+   Processes returned JSON into GSON
+   @param data String of JSON data
+   */
+   public void processAPIData(String data)
+   {
+      System.out.println(data);
+      
+      //create gson
+      Gson gson = new Gson();
+      
+      try {
+         this.selectedClassGSON = gson.fromJson(data, DNDClass.class);
+      } catch (Exception e) {
+         System.out.println("GSON Parsing failed");
+         return;
+      }
+      
+      //DNDClass selectedClassGSON = gson.fromJson(data, DNDClass.class);
+      
+      System.out.println(selectedClassGSON.toString());
+      
+      Platform.runLater(
+         new Runnable() {
+            public void run() {
+               updateMaxHP();
+            }
+         });
+   
+   }
+   
+    /**
+    Initialize
+    initializes the combo box items
+    @param location
+    @param resources
+    */
+   @Override
+   public void initialize(URL location, ResourceBundle resources) {
+    //use to set the character's race/class/weapon selection
+    
+     //adding races to combo box
+      String[] races = {"Dragonborn", "Dwarf", "Elf", "Gnome", "Half-Elf", "Halfling", "Half-Orc", "Human", "Tiefling"};
+      raceDropDown.setItems(FXCollections.observableArrayList(races));
+     
+     //adding classes to combo box
+      String[] dndClasses = {"Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"};
+      classDropDown.setItems(FXCollections.observableArrayList(dndClasses));
+     
+     //adding weapons to combo box
+      String[] weapons = {"Shortsword", "Longsword", "Shortbow", "Crossbow", "Dagger", "Club", "Waraxe", "Mace"};
+      weaponsDropDown.setItems(FXCollections.observableArrayList(weapons));
+   }
+   
    /*
    //Method for when race is edited, it shows the new racial bonus under the ability
    //@FXML
@@ -257,81 +382,7 @@ public class CreateNewCharacterController implements Initializable {
       
       }
       
-   }
-   
-   public void getAPIData()
-   {
-      URI dndAPI = new URI("https://www.dnd5eapi.co/api/races/human");
-      
-      System.out.println("Getting data from API...");
-      
-      //create HttpClient
-      HttpClient client = HttpClient.newHttpClient(); //only create once
-      
-      try {
-      //create httprequest with URI
-         HttpRequest request = HttpRequest.newBuilder()
-                                       .uri(dndAPI)
-                                       .GET()
-                                       .build();
-                                       
-         client.sendAsync(request, BodyHandlers.ofString())
-            .thenApply(HttpResponse::body)
-            .thenAccept(this::processAPIData);
-            
-      } catch(URISyntaxException e) {
-         System.out.println("API Error");
-         return;
-      }
-   }
-   
-   
-   public void processAPIData(String data)
-   {
-      System.out.println(data);
-      
-      //create gson
-      Gson gson = new Gson();
-      
-      
-      try {
-         this.selectedRace = gson.fromJson(data, Race.class);
-      } catch (exception e) {
-         System.out.println("GSON Parsing failed");
-         return;
-      }
-      
-      Race selectedRace = gson.fromJson(data, Race.class);
-      
-      System.out.println(selectedRace.toString());
-      
-      Platform.runLater(
-         new Runnable() {
-            public void run() {
-               updateUI();
-            }
-         });
-   
    }*/
 
-   
-   //Method for updating ArmorClass when class and CON ability score is changed
-   
-   @Override
-   public void initialize(URL location, ResourceBundle resources) {
-    //use to set the character's race/class/weapon selection
-    
-     //adding races to combo box
-      String[] races = {"Dragonborn", "Dwarf", "Elf", "Gnome", "Half-Elf", "Halfling", "Half-Orc", "Human", "Tiefling"};
-      raceDropDown.setItems(FXCollections.observableArrayList(races));
-     
-     //adding classes to combo box
-      String[] dndClasses = {"Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"};
-      classDropDown.setItems(FXCollections.observableArrayList(dndClasses));
-     
-     //adding weapons to combo box
-      String[] weapons = {"Shortsword", "Longsword", "Shortbow", "Crossbow", "Dagger", "Club", "Waraxe", "Mace"};
-      weaponsDropDown.setItems(FXCollections.observableArrayList(weapons));
-   }
 
 }
