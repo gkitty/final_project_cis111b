@@ -82,6 +82,9 @@ public class CreateNewCharacterController implements Initializable {
    @FXML
    private Button abScoreButton; //declaring the ability score button to randomly generate scores for the user
    
+   @FXML
+   private TextField classLevelInput; //declaring level of class for character
+   
    //top level for race storage
    public Race selectedRace;
 
@@ -147,6 +150,13 @@ public class CreateNewCharacterController implements Initializable {
       rawCHAScoreInput.setText(Integer.toString(rollAbilityScore()));
       
       calculateArmorClass();
+      calculateInitiativeBonus();
+   }
+   
+   @FXML
+   void handleClassLevelInput(ActionEvent event)
+   {
+      
    }
    
    /**
@@ -183,14 +193,29 @@ public class CreateNewCharacterController implements Initializable {
       //DEX mod + 10
       int dexScore = Integer.parseInt(rawDEXScoreInput.getText());
       int dexMod = CharacterSheet.scoreToModifier(dexScore);
-      String armorClassStr = Integer.toString(dexMod);
-      String armorClassSigned;
+      String armorClassStr = Integer.toString(dexMod + 10); 
+      armorClass.setText(armorClassStr);
+   }
+   
+   /**
+   calculateInitiativeBonus
+   Initiative bonus is the character's dex modifier only
+   Also updates initiativeBonus field
+   */
+   public void calculateInitiativeBonus()
+   {
+      //DEX mod only
+      int dexScore = Integer.parseInt(rawDEXScoreInput.getText());
+      int dexMod = CharacterSheet.scoreToModifier(dexScore);
+      String initiativeBonusStr = Integer.toString(dexMod);
+      String initiativeBonusSigned;
       if(dexMod > 0)
-         armorClassSigned = "+" + armorClassStr;
+         initiativeBonusSigned = "+" + initiativeBonusStr;
       else
-         armorClassSigned = armorClassStr;   
-         
-      armorClass.setText(armorClassSigned);
+         initiativeBonusSigned = initiativeBonusStr;
+      
+      initiativeBonus.setText(initiativeBonusSigned);
+      
    }
    
    /*

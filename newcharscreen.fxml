@@ -73,5 +73,6 @@
       <Text layoutX="136.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Intelligence" />
       <Button fx:id="rollerButton" layoutX="153.0" layoutY="393.0" mnemonicParsing="false" onAction="#goToRoller" prefHeight="49.0" prefWidth="105.0" text="Go to Roller!" />
       <Button fx:id="abScoreButton" layoutX="96.0" layoutY="288.0" mnemonicParsing="false" onAction="#generateAbScores" text="Generate Ability Scores" />
+      <TextField fx:id="classLevelInput" layoutX="178.0" layoutY="145.0" onAction="#handleClassLevelInput" promptText="Level of Class:" />
    </children>
 </AnchorPane>
