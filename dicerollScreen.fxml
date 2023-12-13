@@ -91,7 +91,7 @@
                   <Font size="19.0" />
                </font>
             </Label>
-            <Label fx:id="race" prefHeight="28.0" prefWidth="88.0" text="Race">
+            <Label fx:id="raceLabel" prefHeight="28.0" prefWidth="88.0" text="Race">
                <font>
                   <Font size="15.0" />
                </font>
@@ -104,7 +104,7 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level:" />
             <Label fx:id="classLevel" prefHeight="24.0" prefWidth="34.0" text="Level" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Current HP:" />
-            <Label text="CurrentHP" />
+            <Label fx:id="currentHP" text="CurrentHP" />
          </children>
       </VBox>
       <VBox layoutX="186.0" layoutY="392.0" prefHeight="200.0" prefWidth="134.0">

@@ -27,6 +27,7 @@ public class CharacterSheet
       /** No Argument Constructor */
    public CharacterSheet()
    {
+   name = "Bart";
    }
    
    /** Constructor */
@@ -37,7 +38,7 @@ public class CharacterSheet
       this.dndClass = dndClass;
       this.classLevel = classLevel;
    }
-   
+  
    /** Copy Constructor */
    public CharacterSheet(CharacterSheet characterSheet)
    {
@@ -203,6 +204,15 @@ public class CharacterSheet
    public int getClassLevel()
    {
       return classLevel;
+   }
+
+   /**
+   getWeapon
+   @return weapon of Character
+   */      
+   public String getWeapon()
+   {
+      return weapon;
    }
    
    /**
