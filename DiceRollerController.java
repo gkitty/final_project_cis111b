@@ -56,10 +56,7 @@ public class DiceRollerController implements Initializable {
    
    @FXML
    private Label classLevel; //declaring the level label
-   
-   @FXML
-   private Label currentHP; //declaring the HP label
-  
+     
    @FXML
    private Label armorClass; //declaring the armor class label
    
@@ -68,10 +65,28 @@ public class DiceRollerController implements Initializable {
    
    @FXML
    private Label weaponName; //declaring the weapons label
+      
+   @FXML
+   private Label maxHPLabel; //maxHP
    
    @FXML
-   private TextField currHPTextField; //declaring textfield for user to set their current HP
+   private Label strModifierL; //displays strength modifier for character
+
+   @FXML
+   private Label dexModifierL; //displays dexterity modifier for character
    
+   @FXML
+   private Label conModifierL; //displays constitution modifier for character
+
+   @FXML
+   private Label wisModifierL; //displays wisdom modifier for character
+
+   @FXML
+   private Label intModifierL; //displays intelligence modifier for character
+
+   @FXML
+   private Label chaModifierL; //displays strength modifier for character
+
    public CharacterSheet characterSheet; //declaring the CharacterSheet the user wants to use
    
    /**
