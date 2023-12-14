@@ -87,6 +87,7 @@ public class DiceRollerController implements Initializable {
    @FXML
    private Label chaModifierL; //displays strength modifier for character
 
+
    public CharacterSheet characterSheet; //declaring the CharacterSheet the user wants to use
    
    /**
@@ -270,7 +271,7 @@ public class DiceRollerController implements Initializable {
       //Recieve characterSheet (CharacterSheet object) from CreateNewCharacterSheetController
       characterSheet = CharacterSheet.getInstance();
       
-      //and set to fields
+      //and set character info to fields
       characterName.setText(characterSheet.getName());
       raceLabel.setText(characterSheet.getRace());
       dndClass.setText(characterSheet.getDNDClass());
@@ -278,8 +279,18 @@ public class DiceRollerController implements Initializable {
       armorClass.setText(Integer.toString(characterSheet.getArmorClass()));
       initiativeBonus.setText(Integer.toString(characterSheet.getInitiativeBonus()));
       weaponName.setText(characterSheet.getWeapon());
-      //add current HP to this
-      //currentHP.setText(Integer.toString(characterSheetView.getCurrentHP()));
+      
+      //setting modifier labels
+      
+      strModifierL.setText(Integer.toString(characterSheet.getAbilityModifier("STR")));
+      dexModifierL.setText(Integer.toString(characterSheet.getAbilityModifier("DEX")));
+      conModifierL.setText(Integer.toString(characterSheet.getAbilityModifier("CON")));
+      intModifierL.setText(Integer.toString(characterSheet.getAbilityModifier("INT")));
+      wisModifierL.setText(Integer.toString(characterSheet.getAbilityModifier("WIS")));
+      chaModifierL.setText(Integer.toString(characterSheet.getAbilityModifier("CHA")));
+      
+      //add Max HP to this
+      //maxHPLabel.setText(Integer.toString(characterSheetView.getMaxHP()));
       
       //Preferences class for saving info idk?
       
