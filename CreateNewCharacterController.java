@@ -154,33 +154,36 @@ public class CreateNewCharacterController implements Initializable {
       
       //generating strength and saving it to the character sheet object
       rawSTRScoreInput.setText(Integer.toString(rollAbilityScore()));
-         characterSheet.setStrength(Integer.parseInt(rawSTRScoreInput.getText()));
+      characterSheet.setStrength(Integer.parseInt(rawSTRScoreInput.getText()));
       
       //generating and saving dexterity
       rawDEXScoreInput.setText(Integer.toString(rollAbilityScore()));
-         characterSheet.setDexterity(Integer.parseInt(rawDEXScoreInput.getText()));
+      characterSheet.setDexterity(Integer.parseInt(rawDEXScoreInput.getText()));
      
       //generating and saving constitution
       rawCONScoreInput.setText(Integer.toString(rollAbilityScore()));
-         characterSheet.setConstitution(Integer.parseInt(rawCONScoreInput.getText()));
-
+      characterSheet.setConstitution(Integer.parseInt(rawCONScoreInput.getText()));
+   
       //generating and saving intelligence         
       rawINTScoreInput.setText(Integer.toString(rollAbilityScore()));
-         characterSheet.setIntelligence(Integer.parseInt(rawINTScoreInput.getText()));
+      characterSheet.setIntelligence(Integer.parseInt(rawINTScoreInput.getText()));
       
       //generating and saving wisdom   
       rawWISScoreInput.setText(Integer.toString(rollAbilityScore()));
-         characterSheet.setWisdom(Integer.parseInt(rawWISScoreInput.getText()));
+      characterSheet.setWisdom(Integer.parseInt(rawWISScoreInput.getText()));
       
       //generating and saving charisma
       rawCHAScoreInput.setText(Integer.toString(rollAbilityScore()));
-         characterSheet.setCharisma(Integer.parseInt(rawCHAScoreInput.getText()));
+      characterSheet.setCharisma(Integer.parseInt(rawCHAScoreInput.getText()));
          
       //calling the calculateArmorClass method    
       calculateArmorClass();
       
       //calling the calculateInitiativeBonus method
       calculateInitiativeBonus();
+      
+      //calling updateMaxHP
+      updateMaxHP();
    }
    
    @FXML
@@ -213,7 +216,8 @@ public class CreateNewCharacterController implements Initializable {
    */
    public void updateMaxHP()
    {
-      if(this.selectedClassGSON != null) {
+      boolean maxHPDependenciesFilled = (this.selectedClassGSON != null) && (Integer.valueOf(rawCONScoreInput.getText()) != null);
+      if(maxHPDependenciesFilled) {
          int classHitDie = this.selectedClassGSON.hit_die;
          int calculatedMaxHP = classHitDie
                             + Integer.valueOf(rawCONScoreInput.getText())
@@ -298,7 +302,8 @@ public class CreateNewCharacterController implements Initializable {
       //create httprequest with URI
          
          HttpRequest request = HttpRequest.newBuilder()
-                                       .uri(new URI("https://www.dnd5eapi.co/api/classes/bard"))
+                                       .uri(new URI("https://www.dnd5eapi.co/api/classes/"
+                                                    + classDropDown.getValue().toLowerCase()))
                                        .GET()
                                        .build();
                                        
