@@ -110,6 +110,15 @@ public class CreateNewCharacterController implements Initializable {
       characterSheet.setDNDClass(classDropDown.getValue());
       //characterSheet.classLevel();
       characterSheet.setWeapon(weaponsDropDown.getValue());
+      
+      //set ability scores
+      characterSheet.setStrength(Integer.parseInt(rawSTRScoreInput.getText()) + 0); //replace 0 with race bonus
+      characterSheet.setDexterity(Integer.parseInt(rawDEXScoreInput.getText()) + 0);
+      characterSheet.setConstitution(Integer.parseInt(rawCONScoreInput.getText()) + 0);
+      characterSheet.setIntelligence(Integer.parseInt(rawINTScoreInput.getText()) + 0);
+      characterSheet.setWisdom(Integer.parseInt(rawWISScoreInput.getText()) + 0);
+      characterSheet.setCharisma(Integer.parseInt(rawCHAScoreInput.getText()) + 0);
+      
    }
 
    /**

@@ -72,7 +72,7 @@ public class DiceRollerController implements Initializable {
    @FXML
    private TextField currHPTextField; //declaring textfield for user to set their current HP
    
-   public CharacterSheet characterSheetView; //declaring the CharacterSheet the user wants to use
+   public CharacterSheet characterSheet; //declaring the CharacterSheet the user wants to use
    
    /**
    rollDie Method
@@ -109,12 +109,12 @@ public class DiceRollerController implements Initializable {
    {
       this.rawRoll.setText(Integer.toString(result));
       this.bonusValue.setText(Integer.toString(bonus));
-      this.rollTotal.setText(Integer.toString(result));
+      this.rollTotal.setText(Integer.toString(result + bonus));
    }
 
    /**
    getRollBonus Method
-   evaluates whether the user has a bonus for the chosen ability
+   Evaluates whether the user has a bonus for the chosen ability
    @param ability the ability chosen by the user
    */
    public int getRollBonus(String ability)
@@ -201,10 +201,10 @@ public class DiceRollerController implements Initializable {
    @FXML
     void rollAbility(ActionEvent event) {
       String abilityRollSelected = abilityRollsList.getValue();
-      String abilitySelected = abilityRollSelected.substring(0,2).toUpperCase();
-      //int bonus = characterSheet.getAbilityModifier(abilitySelected);
-      int bonus = 0;
-      bonus += getRollBonus(abilitySelected);  
+      String abilitySelected = abilityRollSelected.substring(0,3).toUpperCase();
+      System.out.println(abilitySelected);
+      int bonus = characterSheet.getAbilityModifier(abilitySelected);
+      //bonus += getRollBonus(abilitySelected);  
       displayResults(rollDie(20), bonus);
    }
 
@@ -253,16 +253,16 @@ public class DiceRollerController implements Initializable {
       //load API using characterSheet fields to get what saving throws and weapon character has proficiency in
       
       //Recieve characterSheet (CharacterSheet object) from CreateNewCharacterSheetController
-      CharacterSheet characterSheetView = CharacterSheet.getInstance();
+      characterSheet = CharacterSheet.getInstance();
       
       //and set to fields
-      characterName.setText(characterSheetView.getName());
-      raceLabel.setText(characterSheetView.getRace());
-      dndClass.setText(characterSheetView.getDNDClass());
-      classLevel.setText(Integer.toString(characterSheetView.getClassLevel()));
-      armorClass.setText(Integer.toString(characterSheetView.getArmorClass()));
-      initiativeBonus.setText(Integer.toString(characterSheetView.getInitiativeBonus()));
-      weaponName.setText(characterSheetView.getWeapon());
+      characterName.setText(characterSheet.getName());
+      raceLabel.setText(characterSheet.getRace());
+      dndClass.setText(characterSheet.getDNDClass());
+      classLevel.setText(Integer.toString(characterSheet.getClassLevel()));
+      armorClass.setText(Integer.toString(characterSheet.getArmorClass()));
+      initiativeBonus.setText(Integer.toString(characterSheet.getInitiativeBonus()));
+      weaponName.setText(characterSheet.getWeapon());
       //add current HP to this
       //currentHP.setText(Integer.toString(characterSheetView.getCurrentHP()));
       

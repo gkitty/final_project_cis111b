@@ -22,7 +22,13 @@ public final class CharacterSheet
    private String weapon;
    
    /** Character Ability Score Array */
-   private int[] abilityScores = new int[6];
+   //private int[] abilityScores = new int[6];
+   private int strScore;
+   private int dexScore;
+   private int conScore;
+   private int intScore;
+   private int wisScore;
+   private int chaScore;
    
    /** Constant of same type as class and initalized, for passing data between scenes */
    private final static CharacterSheet instance = new CharacterSheet();
@@ -117,23 +123,13 @@ public final class CharacterSheet
    //Ability Score setter methods, have to make sure to include race bonus into score before setting ability score//
    
    /**
-   setAbilityScores
-   Sets abilityScore array for Character
-   @param abilityScores array of ability scores
-   */
-   public void setAbilityScores(int[] abilityScores)
-   {
-   
-   }
-   
-   /**
    setStrength
    Sets strength score within abilityScore array
    @param score Strength score of Character
    */
    public void setStrength(int score)
    {
-      this.abilityScores[0] = score;
+      strScore = score;
    }
    
    /**
@@ -143,7 +139,7 @@ public final class CharacterSheet
    */
    public void setDexterity(int score)
    {
-      this.abilityScores[1] = score;
+      dexScore = score;
    }
    
    /**
@@ -153,7 +149,7 @@ public final class CharacterSheet
    */
    public void setConstitution(int score)
    {
-      this.abilityScores[2] = score;
+      conScore = score;
    }
    
    /**
@@ -163,7 +159,7 @@ public final class CharacterSheet
    */
    public void setIntelligence(int score)
    {
-      this.abilityScores[3] = score;
+      intScore = score;
    }
    
    /**
@@ -173,7 +169,7 @@ public final class CharacterSheet
    */
    public void setWisdom(int score)
    {
-      this.abilityScores[4] = score;
+      wisScore = score;
    }
    
    /**
@@ -183,7 +179,7 @@ public final class CharacterSheet
    */
    public void setCharisma(int score)
    {
-      this.abilityScores[5] = score;
+      chaScore = score;
    }
    
    /**
@@ -258,7 +254,7 @@ public final class CharacterSheet
    */
    public int getStrengthScore()
    {
-      return abilityScores[0];
+      return strScore;
    }
    
    /**
@@ -267,7 +263,7 @@ public final class CharacterSheet
    */
    public int getDexterityScore()
    {
-      return abilityScores[1];
+      return dexScore;
    }
    
    /**
@@ -276,7 +272,7 @@ public final class CharacterSheet
    */
    public int getConstitutionScore()
    {
-      return abilityScores[2];
+      return conScore;
    }
    
    /**
@@ -285,7 +281,7 @@ public final class CharacterSheet
    */
    public int getIntelligenceScore()
    {
-      return abilityScores[3];
+      return intScore;
    }
    
    /**
@@ -294,7 +290,7 @@ public final class CharacterSheet
    */
    public int getWisdomScore()
    {
-      return abilityScores[4];
+      return wisScore;
    }
    
    /**
@@ -303,7 +299,7 @@ public final class CharacterSheet
    */
    public int getCharismaScore()
    {
-      return abilityScores[5];
+      return chaScore;
    }
    
    /**
