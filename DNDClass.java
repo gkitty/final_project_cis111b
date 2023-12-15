@@ -10,9 +10,9 @@ import java.util.ArrayList;
 
 public class DNDClass 
 {
-   public String name;
-   public int hit_die;
-   public ArrayList<Proficiencies> proficiencies;
+   private String name;
+   private int hit_die;
+   private ArrayList<Proficiencies> proficiencies;
 
    /**
       Constructor to initialize the DNDClass with an blank list of proficieneces 

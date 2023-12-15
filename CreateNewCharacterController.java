@@ -216,7 +216,7 @@ public class CreateNewCharacterController implements Initializable {
    @FXML
    void handleDNDClassInput(ActionEvent event)
    {
-      getAPIData();
+      getDNDClassAPIData();
    }
    
    /**
@@ -227,7 +227,7 @@ public class CreateNewCharacterController implements Initializable {
    {
       boolean maxHPDependenciesFilled = (this.selectedClassGSON != null) && (rawCONScoreInput.getText().trim().isEmpty() == false);
       if(maxHPDependenciesFilled) {
-         int classHitDie = this.selectedClassGSON.hit_die;
+         int classHitDie = this.selectedClassGSON.getHitDie();
          int calculatedMaxHP = classHitDie
                             + Integer.valueOf(rawCONScoreInput.getText())
                             + (classHitDie * Integer.valueOf(classLevelInput.getText())); 
@@ -299,7 +299,7 @@ public class CreateNewCharacterController implements Initializable {
    getAPIData
    Gets API data for DNDClass
    */      
-   public void getAPIData()
+   public void getDNDClassAPIData()
    {
       //create HttpClient
       if(this.client == null)
@@ -316,7 +316,7 @@ public class CreateNewCharacterController implements Initializable {
                                        
          client.sendAsync(request, BodyHandlers.ofString())
             .thenApply(HttpResponse::body)
-            .thenAccept(this::processAPIData);
+            .thenAccept(this::processDNDClassAPIData);
             
       } catch(URISyntaxException e) {
          System.out.println("API Error");
@@ -327,11 +327,11 @@ public class CreateNewCharacterController implements Initializable {
    }
    
    /**
-   processAPIData
+   processDNDClassAPIData
    Processes returned JSON into GSON
    @param data String of JSON data
    */
-   public void processAPIData(String data)
+   public void processDNDClassAPIData(String data)
    {
       System.out.println(data);
       
