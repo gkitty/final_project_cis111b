@@ -20,6 +20,8 @@ public final class CharacterSheet
    private int classLevel;
    /** Character's Weapon */
    private String weapon;
+   /** Character's Max HP */
+   private int maxHP;
    
    /** Character Ability Score Array */
    //private int[] abilityScores = new int[6];
@@ -124,7 +126,7 @@ public final class CharacterSheet
    
    /**
    setStrength
-   Sets strength score within abilityScore array
+   Sets strength score 
    @param score Strength score of Character
    */
    public void setStrength(int score)
@@ -134,7 +136,7 @@ public final class CharacterSheet
    
    /**
    setDexterity
-   Sets dexterity score within abilityScore array
+   Sets dexterity score 
    @param score dexterity score of Character
    */
    public void setDexterity(int score)
@@ -144,7 +146,7 @@ public final class CharacterSheet
    
    /**
    setConstitution
-   Sets constitution score within abilityScore array
+   Sets constitution score 
    @param score constitution score of Character
    */
    public void setConstitution(int score)
@@ -154,7 +156,7 @@ public final class CharacterSheet
    
    /**
    setIntelligence
-   Sets intelligence score within abilityScore array
+   Sets intelligence score
    @param score Intelligence score of Character
    */
    public void setIntelligence(int score)
@@ -164,7 +166,7 @@ public final class CharacterSheet
    
    /**
    setWisdom
-   Sets wisdom score within abilityScore array
+   Sets wisdom score
    @param score wisdom score of Character
    */
    public void setWisdom(int score)
@@ -174,12 +176,22 @@ public final class CharacterSheet
    
    /**
    setCharisma
-   Sets charisma score within abilityScore array
+   Sets charisma score 
    @param score Charisma score of Character
    */
    public void setCharisma(int score)
    {
       chaScore = score;
+   }
+   
+   /**
+   setMaxHP
+   Sets max HP for Character
+   @param maxHP for character
+   */
+   public void setMaxHP(int maxHP)
+   {
+      this.maxHP = maxHP;
    }
    
    /**
@@ -303,6 +315,15 @@ public final class CharacterSheet
    }
    
    /**
+   getMaxHP
+   @return maxHP
+   */
+   public int getMaxHP()
+   {
+      return maxHP;
+   }
+   
+   /**
    scoreToModifier
    Uses DND 5e table to convert ability scores to their modifiers
    @param score Ability score
@@ -370,17 +391,6 @@ public final class CharacterSheet
       //API call to /api/races/ *getRace()*
          //check to see what ability_score it has, if it matches with ability then add bonus
       return raceBonus;
-   }
-
-   /**
-   getMaxHP method calculates the character's maxHP
-   @return maxHP total HP the character has
-   */
-   public int getMaxHP()
-   {
-      //API call to class to get hit_die
-      //Calculate maximum 
-      return 0;
    }
 
    /**

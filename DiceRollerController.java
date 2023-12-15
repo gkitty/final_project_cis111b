@@ -67,7 +67,7 @@ public class DiceRollerController implements Initializable {
    private Label weaponName; //declaring the weapons label
       
    @FXML
-   private Label maxHPLabel; //maxHP
+   private TextField maxHPLabel; //maxHP
    
    @FXML
    private Label strModifierL; //displays strength modifier for character
@@ -279,6 +279,7 @@ public class DiceRollerController implements Initializable {
       armorClass.setText(Integer.toString(characterSheet.getArmorClass()));
       initiativeBonus.setText(Integer.toString(characterSheet.getInitiativeBonus()));
       weaponName.setText(characterSheet.getWeapon());
+      maxHPLabel.setPromptText(Integer.toString(characterSheet.getMaxHP()));
       
       //setting modifier labels
       

@@ -110,6 +110,7 @@ public class CreateNewCharacterController implements Initializable {
       characterSheet.setDNDClass(classDropDown.getValue());
       //characterSheet.classLevel();
       characterSheet.setWeapon(weaponsDropDown.getValue());
+      characterSheet.setMaxHP(Integer.valueOf(maxHP.getText()));
       
       //set ability scores
       characterSheet.setStrength(Integer.parseInt(rawSTRScoreInput.getText()) + 0); //replace 0 with race bonus
@@ -215,8 +216,7 @@ public class CreateNewCharacterController implements Initializable {
    @FXML
    void handleDNDClassInput(ActionEvent event)
    {
-      if((rawCONScoreInput.getText() != null) && (classDropDown.getValue() != null))
-         getAPIData();
+      getAPIData();
    }
    
    /**
@@ -225,7 +225,7 @@ public class CreateNewCharacterController implements Initializable {
    */
    public void updateMaxHP()
    {
-      boolean maxHPDependenciesFilled = (this.selectedClassGSON != null) && (Integer.valueOf(rawCONScoreInput.getText()) != null);
+      boolean maxHPDependenciesFilled = (this.selectedClassGSON != null) && (rawCONScoreInput.getText().trim().isEmpty() == false);
       if(maxHPDependenciesFilled) {
          int classHitDie = this.selectedClassGSON.hit_die;
          int calculatedMaxHP = classHitDie
@@ -301,8 +301,6 @@ public class CreateNewCharacterController implements Initializable {
    */      
    public void getAPIData()
    {
-      //URI dndAPI = new URI("https://www.dnd5eapi.co/api/classes/bard");
-      
       //create HttpClient
       if(this.client == null)
          this.client = HttpClient.newHttpClient(); //only create once
@@ -347,14 +345,12 @@ public class CreateNewCharacterController implements Initializable {
          return;
       }
       
-      //DNDClass selectedClassGSON = gson.fromJson(data, DNDClass.class);
-      
       System.out.println(selectedClassGSON.toString());
       
       Platform.runLater(
          new Runnable() {
             public void run() {
-               updateMaxHP();
+               updateMaxHP();       //where the GSON data gets put
             }
          });
    
