@@ -37,15 +37,12 @@ public class DNDBuddyMain extends Application
    @Override
    public void start(Stage stage) throws Exception
    {
-      //load all scenes
-      //Parent rootCharList = FXMLLoader.load(getClass().getResource("OpeningScene.fxml"));
-      //Scene charListScene = new Scene(rootCharList);
-     
+      //load opening scene
+      
       Parent root = FXMLLoader.load(getClass().getResource("OpeningScene.fxml"));
       Scene openingScene = new Scene(root);
      
-      //Parent rootNewChar = FXMLLoader.load(getClass().getResource("newcharscreen.fxml"));
-      //Scene newCharScene = new Scene(rootNewChar);
+      //set scene
      
       stage.setTitle("DND Buddy");
       stage.setScene(openingScene);
