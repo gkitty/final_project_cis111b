@@ -29,10 +29,7 @@ public class DiceRollerController implements Initializable {
 
    @FXML
    private ComboBox<String> abilityRollsList; //declaring the abilityRollsList
-    
-   @FXML
-   private ComboBox<String> savingThrowRollList; //declaring the savingThrowRollList
-    
+        
    @FXML
    private Label bonusValue; //declaring the bonusvalue added to the roll
 
@@ -223,23 +220,6 @@ public class DiceRollerController implements Initializable {
       //bonus += getRollBonus(abilitySelected);  
       displayResults(rollDie(20), bonus);
    }
-
-   /**
-   rollSavingThrow Method
-   User chooses the saving throw type they want to roll for and bonuses are added on
-   @param event clicking a saving throw from the list
-   */
-   @FXML
-    void rollSavingThrow(ActionEvent event) {
-         
-      String savingThrowRollSelected = savingThrowRollList.getValue();
-      String savingThrowSelected = savingThrowRollSelected.substring(0,2).toUpperCase();
-      //does characterSheet.getDNDClass have a proficiency in the selected saving throw? 
-      //int bonus = characterSheet.getAbilityModifier(abilitySelected) + characterSheet.getProficiencyBonus();
-      //else it is only the ability modifier
-      int bonus = 0;
-      displayResults(rollDie(20), bonus);
-   }
    
    /**
    switchToNewCharacter Method
@@ -298,7 +278,6 @@ public class DiceRollerController implements Initializable {
       //add choices to combo boxes
       String[] abilities = {"Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"};
       abilityRollsList.setItems(FXCollections.observableArrayList(abilities));
-      savingThrowRollList.setItems(FXCollections.observableArrayList(abilities));               
    }
    
 
